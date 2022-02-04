@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Yanone+Kaffeesatz:wght@300;400&display=swap');
+@import './variables';
+@import './reset';
+
+@function weight($key){
+    @return map-get($font-weight, $key);
+}
+
+@mixin flexCenter($direction){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    font-family: 'Varela Round', sans-serif;
+    color: $purple;
+    font-size: 18px;
+    margin: 0px;
+    font-weight: weight(bold);
+}
+
+h2{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: weight(bold);
+    color: $purple;
+    font-size: 50px;
+    margin: 0px;
+}
+
+p{
+    font-family: 'Varela Round', sans-serif;
+    color: darken($primary-color, 15%);
+    margin: 0px;
+}
+
+body {
+
+    @include flexCenter(row);
+    background-color: $bg-green;
+    height: 100vh;
+
+    .container{
+        width: 1000px;
+        height: 500px;
+        background-color: $sand;
+        @include flexCenter(row)
+    }
+
+    .menu {
+        width: 80px;
+        height: 100%;
+        
+        @include flexCenter(column);
+
+        svg {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            transition: color ease .2s;
+        }
+
+        .selected {
+            color: $purple
+        }
+    }
+
+    .board-container {
+        @include flexCenter(row);
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .board {
+            display: flex;
+            background-color: lighten(white, 100%);
+            width: 600px;
+            height: 370px;
+            padding: 0px 30px;
+            border-radius: 80px;
+            position: absolute;
+            z-index: 2;
+            right: 30px;
+            animation: board-right-grow .5s ease 0s forwards;
+            -webkit-box-shadow: -2px 2px 31px -16px rgb(0, 0, 0, 0.75);
+            -moz-box-shadow: -2px 2px 31px -16px rgb(0, 0, 0, 0.75);
+            box-shadow: -2px 2px 31px -16px rgb(0, 0, 0, 0.75);
+
+            .board-left, 
+            .board-right{
+                overflow: hidden;
+                width: 50%;
+                height: 100%;
+                scroll-behavior: smooth;
+                
+                .info-img{
+                    width: 73%;
+                    height: 150px;
+                    border-radius: 16px;
+                }
+
+                .header{
+                    svg {
+                        color: $purple;
+                        width: 35px;
+                        height: 35px;
+                        margin: 0px 5px;
+                    }
+                }
+    
+                .subheader{
+                    svg{
+                        color: $primary-color;
+                    }
+                }
+            }
+
+            .board-right{
+                border-left: 2px dashed rgb(216, 216, 216);
+                P{
+                    margin: 5px 0;
+                }
+                h2{
+                    margin: 10px 0px 10px 0px;
+                }
+                h1{
+                    margin: 20px 0px 0px 0px;
+                }
+            }
+
+            .inline-content{
+                display: flex;
+                align-items: center;
+
+                svg{
+                    margin: 0px 5px;
+                }
+            }
+            
+            .card{
+                height: 100%;
+                padding: 40px;
+            }
+        }
+
+        .flex-board{
+            position: absolute;
+            width: 600px;
+            height: 370px;
+            border-radius: 80px;
+            background-color: $purple;
+            right: 300px;
+        }
+
+        .flex-board-close{
+            animation: flex-board-close .5s ease 0s forwards;
+        }
+
+        .flex-board-open{
+            animation: board-right-grow .5s ease 0s forwards;
+        }
+
+        @keyframes board-right-grow{
+            0%{
+                width: 0px;
+            }
+            100%{
+                width: 600px;
+            }
+        }
+
+        @keyframes flex-board-close {
+            0%{
+                width: 600px;
+            }
+            100%{
+                width: 0px;
+            }
+        }
+        
+    }
+}
+

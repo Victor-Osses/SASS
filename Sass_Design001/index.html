@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Design 001 - Animações avançadas</title>
+</head>
+<body>
+    <div class="container">
+        <div id="menu" class="menu"> 
+            <i id="1" class="selected" data-feather="sun"></i>
+            <i id="2" class="" data-feather="cloud"></i>
+            <i id="3" class="" data-feather="moon"></i>
+        </div>
+        <div class="board-container">
+            <div class="board">
+                    <div id="board-left" class="board-left">
+                        <div class="card" id="bl-3">
+                            <div class="header inline-content">
+                                <h2>18°</h2>
+                                <i id="3" data-feather="moon"></i>
+                            </div>
+                            <div class="subheader inline-content">
+                                <i id="3" data-feather="cloud"></i>
+                                <p>Night conditions</p>
+                            </div>
+                            <hr><br>
+                            <h1>Miami Beach</h1>
+                            <img class="info-img" src="https://i.pinimg.com/564x/35/84/6b/35846b4074ead74002e9c76df9109cb7.jpg" alt="">
+                        </div>
+                        <div class="card" id="bl-2">
+                            <div class="header inline-content">
+                                <h2>28°</h2>
+                                <i id="3" data-feather="sun"></i>
+                            </div>
+                            <div class="subheader inline-content">
+                                <i id="3" data-feather="cloud"></i>
+                                <p>Sunny conditions</p>
+                            </div>
+                            <hr><br>
+                            <h1>Lagoon Beach</h1>
+                            <img class="info-img" src="https://i.pinimg.com/564x/35/84/6b/35846b4074ead74002e9c76df9109cb7.jpg" alt="">
+                        </div>
+                        <div class="card" id="bl-1">
+                            <div class="header inline-content">
+                                <h2>22°</h2>
+                                <i id="3" data-feather="sun"></i>
+                            </div>
+                            <div class="subheader inline-content">
+                                <i id="3" data-feather="cloud"></i>
+                                <p>Sunny conditions</p>
+                            </div>
+                            <hr><br>
+                            <h1>Califórnia Beach</h1>
+                            <img class="info-img" src="https://i.pinimg.com/564x/35/84/6b/35846b4074ead74002e9c76df9109cb7.jpg" alt="">
+                        </div>
+                    </div>
+                    <div id="board-right" class="board-right">
+                        <div class="card" id="br-1">
+                            <p>10:30 AM</p>
+                            <h2>PADDLE <br>SURF</h2>
+                            <p>Explore around the<br> seathore</p>
+                            <hr>
+                            <h1>NOOM</h1>
+                            <p>Do some stuff tomorrow</p>
+                        </div>
+                        <div class="card" id="br-2">
+                            <p>12:30 AM</p>
+                            <h2>SURF <br>CLASSES</h2>
+                            <p>Explore around the<br> seathore</p>
+                            <hr>
+                            <h1>NOOM</h1>
+                            <p>Do some stuff tomorrow</p>
+                        </div>
+                        <div class="card" id="br-3">
+                        <p>19:30 AM</p>
+                        <h2>BEACH <br>LUAL</h2>
+                        <p>Explore around the<br> seathore</p>
+                        <hr>
+                        <h1>NOOM</h1>
+                        <p>Do some stuff tomorrow</p>
+                    </div>
+                </div>
+            </div>
+            <div id="flex-board" class="flex-board flex-board-open"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

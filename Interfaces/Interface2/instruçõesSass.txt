@@ -1,0 +1,97 @@
+****************************O QUE É O SASS****************************
+
+O SASS é um pré-processador CSS que vai pegar o código CSS e vai transformar em SCSS, levando em conta
+as funcionalidade a mais adicionadas, permitindo um código CSS otimizando
+
+****************************INSTALANDO E CONFIGURANDO****************************
+
+Primeiramente, é necessário ter o node.js instalado.
+Após isso, para instalar o SASS de forma global na máquina, é necessário dar o seguinte comando:
+
+    - npm install -g sass
+
+Se o SASS já estiver instalando, o comando acima só o atualizará para a versão mais recente
+Para verificar se o sass já está instalado dê o seguinte comando:
+
+    - sass --version
+
+Beleza, feito isso, agora eu crio uma passta "sass" e crio um arquivo "style.sass"
+Em seguida eu digito no terminal o seguinte comando: 
+   
+    - sass --watch sass/style.sass:css/style.css
+
+Nesse último comando, eu estou dizendo para pré-processar o arquivo sass automaticamente e compilar ele
+em um arquivo css
+
+
+****************************SINTAXE DO SASS****************************
+
+- Não se utiliza chaves para definir o escopo das estilizações. Utiliza-se a identação.
+
+Ex:    div
+            background: red 
+
+- Não se utiliza ';' ao final de uma estilização
+
+- Para criar variáveis, recomenda-se criar um arquivo sass/_variables.sass e importar as variáveis.
+Para criar uma váriavel, utiliza-se '$' antes do nome dela e ':' como sinal de atribuição
+
+Ex:
+    $primary-color: #FFF
+
+- Para importar as variáveis no arquivo style.sass, utiliza-se @use 'nomeArquivo'. Perceba que o '_' e a
+extensão '.sass' não aparecem.
+
+Ex: 
+     @use 'variables'
+
+- Para utilizar as variáveis, faça como no exemplo a seguir:
+
+Ex: 
+    h1 
+        color: variables.$primary-color
+
+- Especificidades em estilizações tem prioridade.
+
+Ex:
+    body
+        h2
+            color: #ff2243 // Todo h2 será estilizado com essa cor
+    h2
+        color: #a31241
+
+- É possível criar rotinas (funções) para estilizações. A princípio, cria-se um arquivo 
+sass/_mixins.sass e o importa (@use 'mixins'). Dentro deste arquivo você pode criar uma função assim:
+
+@mixin NomeFunção
+    estilo1
+    estilo2
+
+Ex: 
+
+@use 'variables'
+
+    // Função para limitar o conteúdo
+    @mixin container
+        max-width: variables.$container-width
+        padding: 1.5rem 0 
+        margin: 0 auto
+
+- Para utilizar uma função no arquivo style.sass:
+@include nomeArquivo.NomeFunção
+
+Ex: 
+    @include mixins.container
+
+- Para utilizar um @media, eu posso criar um @mixin
+
+Ex:
+    @mixin mobile
+        @media(max-width: 425px)
+            @content
+
+- Tendo em mente o código acima, para utilizar o @media, utiliza-se o código abaixo:
+
+Ex:
+    @include mixins.mobile
+        display: none
